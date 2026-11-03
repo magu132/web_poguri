@@ -1,13 +1,239 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>web_poguri</title>
+    <meta name="theme-color" content="#1c0710" />
+    <meta
+      name="description"
+      content="수업과 연구로 새로운 가능성을 탐구하는 초등교사, 김혜연의 자기소개 페이지입니다."
+    />
+    <title>김혜연 | 새로운 것을 추구하는 연구하는 초등교사</title>
   </head>
   <body>
-    <div id="app"></div>
+    <!-- 수식·좌표·도형 애니메이션 배경 (src/main.js에서 그림) -->
+    <canvas id="math-bg" aria-hidden="true"></canvas>
+    <div class="bg-glow" aria-hidden="true"></div>
+    <div class="scroll-progress" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <nav class="nav container" aria-label="주요 메뉴">
+        <a class="nav__brand" href="#top" aria-label="Creativity, 맨 위로 이동">
+          <span class="nav__mark" aria-hidden="true">
+            <!-- 반짝이는 별(창의성) 아이콘 -->
+            <svg viewBox="0 0 24 24" width="20" height="20">
+              <path d="M12 2l2.2 6.3L20.5 10l-6.3 2.2L12 18.5l-2.2-6.3L3.5 10l6.3-1.7z" />
+              <path d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9z" />
+            </svg>
+          </span>
+          <span class="nav__word">Creativity</span>
+        </a>
+        <ul class="nav__list">
+          <li><a href="#philosophy">교육 철학</a></li>
+          <li><a href="#interests">연구 관심사</a></li>
+          <li><a href="#projects">프로젝트</a></li>
+          <li><a href="#contact">연락처</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="top">
+      <!-- ===================== 1. 첫 화면 ===================== -->
+      <section class="hero container" aria-labelledby="hero-title">
+        <div class="hero__text">
+          <p class="hero__eyebrow reveal">
+            <span class="chip">f(x) = 연구하는 초등교사</span>
+          </p>
+          <h1 id="hero-title" class="hero__tagline reveal">
+            <span class="hero__line gradient-text">새로운 것을 추구하며,</span>
+            <span class="hero__line">효율적인 교실 환경으로 바꾸어 나갑니다.</span>
+          </h1>
+          <p class="hero__name reveal">
+            <span class="hero__name-bar" aria-hidden="true"></span>
+            <span class="gradient-text">김혜연</span>
+          </p>
+          <p class="hero__intro reveal">
+            변화하는 환경 속에서 늘 새로운 것을 찾는 것을 좋아합니다.
+            효율성을 추구하며, 최선의 방법을 찾아 나가고 있습니다.
+          </p>
+          <div class="hero__actions reveal">
+            <a class="btn btn--primary" href="#philosophy">
+              <span>나의 교육 철학</span><span class="btn__icon" aria-hidden="true">→</span>
+            </a>
+            <a class="btn btn--ghost" href="#projects">
+              <span>수업 및 연구 프로젝트</span><span class="btn__icon" aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 회전하는 기하 오브젝트 -->
+        <div class="hero__orbit reveal" aria-hidden="true">
+          <svg viewBox="0 0 400 400" class="orbit">
+            <defs>
+              <linearGradient id="g-stroke" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#ffcf70" />
+                <stop offset="50%" stop-color="#ff7a66" />
+                <stop offset="100%" stop-color="#ff8fb8" />
+              </linearGradient>
+            </defs>
+            <g class="orbit__ring orbit__ring--1">
+              <circle cx="200" cy="200" r="180" />
+              <circle cx="200" cy="20" r="6" class="dot" />
+            </g>
+            <g class="orbit__ring orbit__ring--2">
+              <polygon points="200,60 321,270 79,270" />
+              <circle cx="200" cy="60" r="5" class="dot" />
+            </g>
+            <g class="orbit__ring orbit__ring--3">
+              <rect x="110" y="110" width="180" height="180" />
+            </g>
+            <g class="orbit__ring orbit__ring--4">
+              <polygon points="200,95 300,153 300,247 200,305 100,247 100,153" />
+            </g>
+            <line x1="20" y1="200" x2="380" y2="200" class="axis" />
+            <line x1="200" y1="20" x2="200" y2="380" class="axis" />
+          </svg>
+          <span class="orbit__label orbit__label--a">∫ 탐구 dx</span>
+          <span class="orbit__label orbit__label--b">(x, y) → ∞</span>
+          <span class="orbit__label orbit__label--c">Δ 변화</span>
+        </div>
+
+        <a class="hero__scroll" href="#philosophy" aria-label="아래로 스크롤">
+          <span></span>
+        </a>
+      </section>
+
+      <!-- ===================== 2. 나의 교육 철학 ===================== -->
+      <section id="philosophy" class="section container" aria-labelledby="philosophy-title">
+        <header class="section__head reveal">
+          <p class="section__eyebrow">01 · Philosophy</p>
+          <h2 id="philosophy-title" class="section__title">
+            나의 <span class="gradient-text">교육 철학</span>
+          </h2>
+        </header>
+        <div class="grid grid--3">
+          <article class="card tilt reveal">
+            <span class="card__symbol" aria-hidden="true">Δ</span>
+            <p class="card__num">01</p>
+            <h3 class="card__title">변화를 추구하는 수업</h3>
+            <p class="card__text">
+              어제와 같은 수업에 머무르지 않고, 새로운 방법을 시도하며 수업을 계속 바꾸어 나갑니다.
+            </p>
+          </article>
+          <article class="card tilt reveal">
+            <span class="card__symbol" aria-hidden="true">∞</span>
+            <p class="card__num">02</p>
+            <h3 class="card__title">학생의 생각에서 출발해 확장되는 수업</h3>
+            <p class="card__text">
+              학생이 가진 생각을 출발점으로 삼아, 질문과 탐구를 통해 더 넓은 배움으로 이어갑니다.
+            </p>
+          </article>
+          <article class="card tilt reveal">
+            <span class="card__symbol" aria-hidden="true">√</span>
+            <p class="card__num">03</p>
+            <h3 class="card__title">교사든 학생이든, 스스로 책임지는 태도</h3>
+            <p class="card__text">
+              교실의 모두가 자신의 선택과 배움에 책임지는 주인이 되는 문화를 만들어 갑니다.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- ===================== 3. 주요 연구 관심사 ===================== -->
+      <section id="interests" class="section container" aria-labelledby="interests-title">
+        <header class="section__head reveal">
+          <p class="section__eyebrow">02 · Research Interests</p>
+          <h2 id="interests-title" class="section__title">
+            주요 <span class="gradient-text">연구 관심사</span>
+          </h2>
+        </header>
+        <div class="interests">
+          <article class="interest card tilt reveal">
+            <div class="interest__visual" aria-hidden="true">
+              <span>AI</span>
+              <small>y = f(data)</small>
+            </div>
+            <div>
+              <h3 class="card__title">AI와 디지털 도구를 활용한 새로운 수학 수업</h3>
+              <p class="card__text">
+                AI와 디지털 도구가 수학 수업을 어떻게 바꿀 수 있는지 탐구하고, 교실에서 직접 적용해 봅니다.
+              </p>
+            </div>
+          </article>
+          <article class="interest card tilt reveal">
+            <div class="interest__visual interest__visual--alt" aria-hidden="true">
+              <span>∂</span>
+              <small>사고의 과정</small>
+            </div>
+            <div>
+              <h3 class="card__title">학생의 수학적 사고와 학습 과정</h3>
+              <p class="card__text">
+                정답보다 그 답에 이르는 과정에 주목하며, 학생이 수학적으로 생각하는 방식을 들여다봅니다.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ===================== 4. 수업 및 연구 프로젝트 =====================
+           ✏️ 현재 테스트 주소(example.com)입니다. 실제 주소로 바꾸세요. -->
+      <section id="projects" class="section container" aria-labelledby="projects-title">
+        <header class="section__head reveal">
+          <p class="section__eyebrow">03 · Projects</p>
+          <h2 id="projects-title" class="section__title">
+            수업 및 <span class="gradient-text">연구 프로젝트</span>
+          </h2>
+        </header>
+        <div class="grid grid--2">
+          <!-- 카드 1 -->
+          <article class="card project tilt reveal">
+            <p class="project__label">Project 01</p>
+            <h3 class="card__title">AI 챗봇을 활용한 역사적 상상력 체험</h3>
+            <p class="card__text">하나의 프롬프트로 여러 수업 자료를 제작할 수 있는 수업 활동</p>
+            <a class="card__link" href="https://example.com/project-1" target="_blank" rel="noopener">자세히 보기 →</a>
+          </article>
+
+          <!-- 카드 2 -->
+          <article class="card project tilt reveal">
+            <p class="project__label">Project 02</p>
+            <h3 class="card__title">퀴즈 자료 자동 생성 비서 (블루킷 등)</h3>
+            <p class="card__text">한 번의 설정으로 퀴즈 프로그램에 필요한 자료를 바로 만드는 도구</p>
+            <a class="card__link" href="https://example.com/project-2" target="_blank" rel="noopener">자세히 보기 →</a>
+          </article>
+        </div>
+      </section>
+
+      <!-- ===================== 5. 연락처 ===================== -->
+      <section id="contact" class="section container" aria-labelledby="contact-title">
+        <div class="contact card reveal">
+          <p class="section__eyebrow">04 · Contact</p>
+          <h2 id="contact-title" class="section__title">
+            함께 <span class="gradient-text">탐구해요</span>
+          </h2>
+          <p class="contact__lead">수업과 연구에 관한 이야기라면 언제든 환영합니다.</p>
+          <dl class="contact__list">
+            <div class="contact__row">
+              <dt>이메일</dt>
+              <dd><a href="mailto:sch04hae@snu.ac.kr">sch04hae@snu.ac.kr</a></dd>
+            </div>
+            <div class="contact__row">
+              <dt>관련 사이트</dt>
+              <!-- ✏️ 현재 테스트 주소(example.com)입니다. href와 글자를 실제 주소로 바꾸세요 -->
+              <dd><a href="https://example.com" target="_blank" rel="noopener">example.com</a></dd>
+            </div>
+          </dl>
+          <a class="btn btn--primary" href="mailto:sch04hae@snu.ac.kr">
+            <span>메일 보내기</span><span class="btn__icon" aria-hidden="true">✉</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p class="container">© 2026 김혜연 · e<sup>iπ</sup> + 1 = 0</p>
+    </footer>
+
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
